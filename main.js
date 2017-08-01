@@ -96,5 +96,18 @@ let formData = [
 
 
 // -------- Your Code Goes Below this Line --------
+let setParent = document.getElementById("fields");
+let createInput = "";
+if (formData[i].type === "select"){
+  createInput = document.createElement("select");
+} else if (formData[i].type) === "textarea");
+  createInput = document.createElement("textarea");
+  else {
+  createInput = document.createElement("input");
+}
 
-
+createInput.setAttribute(formData[i].type, "type");
+createInput.setAttribute(formData[i].id, "id");
+createInput.setAttribute(formData[i].icon, "icon");
+createInput.setAttribute(formData[i].label, "label");
+setParent.appendChild(createInput);
