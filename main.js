@@ -96,18 +96,36 @@ let formData = [
 
 
 // -------- Your Code Goes Below this Line --------
-let setParent = document.getElementById("fields");
-let createInput = "";
-if (formData[i].type === "select"){
-  createInput = document.createElement("select");
-} else if (formData[i].type) === "textarea");
-  createInput = document.createElement("textarea");
-  else {
-  createInput = document.createElement("input");
-}
+let createLinkParent = document.querySelector("head");
+let createLink = document.createElement("link");
+createLink.setAttribute("rel", "stylesheet");
+createLinkParent.appendChild(createLink);
+for (i = 0; i < formData.length; i++){
 
-createInput.setAttribute(formData[i].type, "type");
+let setParent = document.getElementById("fields");
+  let createInput = "";
+  if (formData[i].type === "select"){
+    createInput = document.createElement("select");
+  } else if (formData[i].type === "textarea"){
+    createInput = document.createElement("textarea");
+  } else {
+      createInput = document.createElement("input");
+  }
+
+createInput.setAttribute("type", formData[i].type);
 createInput.setAttribute(formData[i].id, "id");
-createInput.setAttribute(formData[i].icon, "icon");
-createInput.setAttribute(formData[i].label, "label");
+//createInput.setAttribute(formData[i].icon, "icon");
+//createInput.setAttribute(formData[i].label, "placeholder");
 setParent.appendChild(createInput);
+
+if (formData[i].options.length !== 0){
+  for (let j = 0; j < formData[i].options.length; j++){
+    let createOptions = document.createElement("option");
+    createOptions.setAttribute("value", formData[i].options[j].label);
+    createOptions.textContent = (formData[i].options[z].label);
+    createInput.appendChild(createOptions);
+
+
+    }
+  }
+}
